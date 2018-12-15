@@ -21,76 +21,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nAY-wO-8nJ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="375"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="rew-b7-JIY">
+                                <rect key="frame" x="-1" y="0.0" width="376" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1159330118" green="0.66712042299999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nAY-wO-8nJ">
+                                <rect key="frame" x="-1" y="20" width="377" height="377"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUv-4b-O4D">
                                 <rect key="frame" x="95" y="469" width="62" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1159330118" green="0.66712042299999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="album">
                                     <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 </state>
-                                <connections>
-                                    <action selector="openAlbam" destination="BYZ-38-t0r" eventType="touchUpInside" id="l3i-xW-J9a"/>
-                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03u-bc-NDI">
-                                <rect key="frame" x="219" y="469" width="62" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xZ-PQ-qmB">
+                                <rect key="frame" x="56" y="405" width="263" height="254"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1159330118" green="0.66712042299999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="post">
+                                <state key="normal" title="save" image="save.png">
                                     <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="snsPhoto" destination="BYZ-38-t0r" eventType="touchUpInside" id="CYL-Hg-8Fd"/>
+                                    <action selector="savePhoto" destination="BYZ-38-t0r" eventType="touchUpInside" id="m0q-NS-Q11"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXJ-K3-UQx">
-                                <rect key="frame" x="32" y="528" width="65" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03u-bc-NDI">
+                                <rect key="frame" x="280" y="579" width="95" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1159330118" green="0.66712042299999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="take phot">
+                                <state key="normal" title="post" image="share.png">
                                     <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="takePhoto" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ak-0d-jXK"/>
+                                    <action selector="snsPhoto" destination="BYZ-38-t0r" eventType="touchUpInside" id="QD1-ZR-uyx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xZ-PQ-qmB">
-                                <rect key="frame" x="157" y="528" width="62" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXJ-K3-UQx">
+                                <rect key="frame" x="-1" y="591" width="109" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1159330118" green="0.66712042299999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="save">
+                                <state key="normal" title="take phot" image="retry.png">
                                     <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="savePhoto" destination="BYZ-38-t0r" eventType="touchUpInside" id="se4-h7-K6K"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jG-a3-Lkq">
-                                <rect key="frame" x="281" y="528" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1159330118" green="0.66712042299999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="collarfilter">
-                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="collarfilter" destination="BYZ-38-t0r" eventType="touchUpInside" id="ILr-8t-NTk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Nc-Is-8FL">
-                                <rect key="frame" x="158" y="409" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.090196078431372548" green="0.66666666666666663" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="stamp">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="processButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nbc-Je-ROB"/>
+                                    <action selector="retry" destination="BYZ-38-t0r" eventType="touchUpInside" id="mJK-GV-gqq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -105,4 +78,10 @@
             <point key="canvasLocation" x="136.80000000000001" y="130.88455772113943"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background.png" width="1567" height="1220"/>
+        <image name="retry.png" width="522" height="418"/>
+        <image name="save.png" width="980" height="981"/>
+        <image name="share.png" width="480" height="480"/>
+    </resources>
 </document>

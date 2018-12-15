@@ -10,15 +10,18 @@ import UIKit
 //写真をSNSに投稿したいときに必要なフレームワーク
 import Accounts
 
+import Social
+
+import AVFoundation
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet var cameraImageView: UIImageView!
     
-    let maskImage = UIImage(named: "IMG_5987.JPG")
+    let maskImage = UIImage(named: "jk.png")
     
     //画像を加工するための元となる画像
     var oliginalimage: UIImage!
-    
+    var count: Int = 1
     var text = "🌟航🌟"
     
     //画像加工するフィルターの宣言
@@ -27,17 +30,36 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.takePhoto), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+    }
+    // View構築後の処理
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if count == 1 {
+            
+            self.takePhoto()
+//            self.processButtonTapped()
+        }
+        if count >= 2{
+            self.processButtonTapped()
+        }
+        count += 1
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    
     }
     
+    @IBAction func retry(){
+        self.takePhoto()
+    }
     //撮影するボタンのメソッド
-    @IBAction func takePhoto() {
+    func takePhoto() {
+        print("\nif文の外\n")
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            
+            print("\nif文の中\n")
             //カメラを起動
             let picker = UIImagePickerController()
             picker.sourceType = .camera
@@ -45,17 +67,62 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             picker.allowsEditing = true
             //画面遷移
             present(picker, animated: true, completion: nil)
+            // photoImageView.imageがnilでなければselecttedPhotoに値が入る
+//            guard let selectedPhoto = cameraImageView.image else {
+//
+//                //nilならアラートを表示してメソッドを抜ける
+////                simpleAlert("画像がありません")
+//                return
+//            }
+            // seletedPhotoに画像を合成して画面に描き出す
+//            self.cameraImageView.image = self.drawMaskImage(selectedPhoto)
+            
+//            self.processButtonTapped()
         } else {
             //カメラを使えない時はコンソールに出ます
             print("Error")
         }
+        
     }
-    
     //編集した画像を保存するボタンのメソッド
     @IBAction func savePhoto() {
-        UIImageWriteToSavedPhotosAlbum(cameraImageView.image!, nil, nil, nil)
+//        UIImageWriteToSavedPhotosAlbum(cameraImageView.image!, nil, nil, nil)
+        guard let selectedPhoto = cameraImageView.image else {
+            simpleAlert("画像がありません")
+            return
+        }
+        
+        let alertController = UIAlertController(title: "アップロード先を選択", message: nil, preferredStyle: .actionSheet)
+//        let firstAction = UIAlertAction(title: "Facebookに投稿", style: .default) {
+//            action in
+//            self.postToSNS(SLServiceTypeFacebook)
+//        }
+//        let secondAction = UIAlertAction(title: "Twitterに投稿", style: .default) {
+//            action in
+//            self.postToSNS(SLServiceTypeTwitter)
+//        }
+        let thirdAction = UIAlertAction(title: "カメラロールに保存", style: .default) {
+            action in
+            UIImageWriteToSavedPhotosAlbum(selectedPhoto, self, nil, nil)
+            self.simpleAlert("アルバムに保存されました。")
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style:  .cancel, handler: nil)
+        
+        
+//        alertController.addAction(firstAction)
+//        alertController.addAction(secondAction)
+        alertController.addAction(thirdAction)
+        alertController.addAction(cancelAction)
+        
+        
+        present(alertController, animated: true, completion: nil)
     }
-    
+//    func image(image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutablePointer<Void>) {
+//        if error != nil {
+//            //プライバシー設定不許可など書き込み失敗時は -3310 (ALAssetsLibraryDataUnavailableError)
+////            println(error.code)
+//        }
+//    }
     //表示している画像にフィルタ加工するメソッド
   /*
     @IBAction func collarfilter() {
@@ -100,7 +167,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func snsPhoto() {
         
         //投稿するときに一緒に載せるコメント
-        let shareText = "写真加工いえい"
+        let shareText = "脱ぼっち成功"
         
         //投稿する画像の選択
         let shareImage = cameraImageView.image!
@@ -118,41 +185,42 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     // 合成ボタンを押したときに呼ばれるメソッド
-    @IBAction func processButtonTapped(_ sender: UIButton) {
+    func processButtonTapped() {
         
         
         // photoImageView.imageがnilでなければselecttedPhotoに値が入る
         guard let selectedPhoto = cameraImageView.image else {
-            
+
             //nilならアラートを表示してメソッドを抜ける
-            simpleAlert("画像がありません")
+            print("\nhoge\n")
+//            simpleAlert("画像がありません")
             return
         }
-        
-        let alertController = UIAlertController(title: "合成するパーツを選択", message: nil, preferredStyle: .actionSheet)
-        let firstAction = UIAlertAction(title: "テキスト", style: .default) {
-            action in
-            
-            self.inputTextField()
-            // selectedPhotoにテキストを合成して画面に描き出す
-            //self.photoImegeView.image = self.drawText(selectedPhoto)
-        }
-        let secondAction = UIAlertAction(title: "犬", style: .default){
-            action in
-            
-            
+//
+//        let alertController = UIAlertController(title: "合成するパーツを選択", message: nil, preferredStyle: .actionSheet)
+//        let firstAction = UIAlertAction(title: "テキスト", style: .default) {
+//            action in
+//
+//            self.inputTextField()
+//            // selectedPhotoにテキストを合成して画面に描き出す
+//            //self.photoImegeView.image = self.drawText(selectedPhoto)
+//        }
+//        let secondAction = UIAlertAction(title: "あ", style: .default){
+//            action in
+//
+//
             // seletedPhotoに画像を合成して画面に描き出す
             self.cameraImageView.image = self.drawMaskImage(selectedPhoto)
-        }
-        let cancelAction = UIAlertAction(title: "キャンセル", style:  .cancel, handler: nil)
-        
-        
-        alertController.addAction(firstAction)
-        alertController.addAction(secondAction)
-        alertController.addAction(cancelAction)
-        
-        
-        present(alertController, animated: true, completion: nil)
+//        }
+//        let cancelAction = UIAlertAction(title: "キャンセル", style:  .cancel, handler: nil)
+//
+//
+//        alertController.addAction(firstAction)
+//        alertController.addAction(secondAction)
+//        alertController.addAction(cancelAction)
+//
+//
+//        present(alertController, animated: true, completion: nil)
     }
 
     
@@ -229,7 +297,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         
         // 描き出す位置と大きさの設定　CGRectMake([左からのx座標]px, [上からのy座標]px, [横の長さ]px)
-        let offset: CGFloat = 50.0
+        let offset: CGFloat = 0.0
         let maskRect = CGRect(
             x: image.size.width - maskImage!.size.width - offset,
             y: image.size.height - maskImage!.size.height - offset,
@@ -237,6 +305,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             height: maskImage!.size.height
         )
         
+//        maskImage!.size.width = image.size.width
+//        maskImage!.size.width = image.size.height
         
         //maskRectで指定した範囲にmaskImage絵お書き出す
         maskImage!.draw(in: maskRect)
