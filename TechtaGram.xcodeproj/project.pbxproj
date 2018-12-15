@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					897BFAB01ED5401000DD16F8 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = NV6EXP3568;
 						ProvisioningStyle = Automatic;
 					};
 					897BFAC41ED5401000DD16F8 = {
@@ -412,7 +413,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NV6EXP3568;
 				INFOPLIST_FILE = TechtaGram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nepuson.TechtaGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -424,7 +427,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NV6EXP3568;
 				INFOPLIST_FILE = TechtaGram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nepuson.TechtaGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -505,6 +510,7 @@
 				897BFADB1ED5401000DD16F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		897BFADC1ED5401000DD16F8 /* Build configuration list for PBXNativeTarget "TechtaGramTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +519,7 @@
 				897BFADE1ED5401000DD16F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		897BFADF1ED5401000DD16F8 /* Build configuration list for PBXNativeTarget "TechtaGramUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +528,7 @@
 				897BFAE11ED5401000DD16F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
